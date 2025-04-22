@@ -1,16 +1,17 @@
 {
   "compilerOptions": {
     "target": "ESNext",
-    "module": "NodeNext",
-    "moduleResolution": "nodenext",
-    "types": ["node"],
+    "module": "ESNext",
+    "moduleResolution": "bundler", // ✅ 前端 ESM 模式，Vite 建議用法
     "jsx": "react-jsx",
     "baseUrl": "./",
     "paths": {
       "@/*": ["src/*"]
     },
+    "strict": true,
     "esModuleInterop": true,
-    "strict": true
+    "skipLibCheck": true,
+    "allowSyntheticDefaultImports": true
   },
   "include": ["src"]
 }
