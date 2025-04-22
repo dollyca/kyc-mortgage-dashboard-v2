@@ -2,15 +2,9 @@
   "compilerOptions": {
     "target": "ESNext",
     "module": "ESNext",
-    "moduleResolution": "Node",
-    "types": ["node"],
-    "jsx": "react-jsx",
-    "baseUrl": "./",
-    "paths": {
-      "@/*": ["src/*"]
-    },
+    "moduleResolution": "nodenext",  // 关键修改
+    "strict": true,
     "esModuleInterop": true,
-    "strict": true
-  },
-  "include": ["src"]
+    "skipLibCheck": true           // 可选：跳过库类型检查（临时解决依赖类型问题）
+  }
 }
