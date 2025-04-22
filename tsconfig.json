@@ -1,8 +1,16 @@
-"compilerOptions": {
-  "target": "ESNext",
-  "module": "ESNext",
-  "moduleResolution": "Node",
-  "types": ["node"], 
-  "jsx": "react-jsx",
-  ...
+{
+  "compilerOptions": {
+    "target": "ESNext",
+    "module": "ESNext",
+    "moduleResolution": "Node",
+    "types": ["node"],
+    "jsx": "react-jsx",
+    "baseUrl": "./",
+    "paths": {
+      "@/*": ["src/*"]
+    },
+    "esModuleInterop": true,
+    "strict": true
+  },
+  "include": ["src"]
 }
