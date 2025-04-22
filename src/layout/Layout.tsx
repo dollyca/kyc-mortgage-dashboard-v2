@@ -1,5 +1,5 @@
-import Sidebar from "../components/Sidebar";
-import Header from "../components/Header";
+import Sidebar from "../components/Sideba.tsx";
+import Header from "../components/Header.tsx";
 
 export default function Layout({ children }: { children: React.ReactNode }) {
   return (
