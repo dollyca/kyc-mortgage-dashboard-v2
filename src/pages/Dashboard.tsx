@@ -2,10 +2,10 @@
 // 使用 Layout 統一包住 Sidebar 和 Header
 // 包含三個 KPI 卡片 + 一張進度條 + 一張信用圖表
 
-import Layout from "../layout/Layout.tsx";
-import KpiCard from "../components/KpiCard.tsx";
-import ProgressBar from "../components/ProgressBar.tsx";
-import CreditChart from "../components/CreditScoreChart.tsx";
+import Layout from "../layout/Layout";
+import KpiCard from "../components/KpiCard";
+import ProgressBar from "../components/ProgressBar";
+import CreditChart from "../components/CreditScoreChart";
 import { useState, useEffect } from "react"
 import { fetchRepaymentProgress } from "@/services/api"
 

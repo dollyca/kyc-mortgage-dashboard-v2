@@ -1,5 +1,5 @@
 // src/pages/KycForm.tsx
-import Layout from "../layout/Layout.tsx";
+import Layout from "../layout/Layout";
 
 export default function KycForm() {
   return (
