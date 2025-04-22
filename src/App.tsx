@@ -1,7 +1,7 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import Dashboard from "./pages/Dashboard.tsx";
-import Customers from "./pages/Customers.tsx";
-import KycForm from "./pages/KycForm.tsx";
+import Dashboard from "./pages/Dashboard";
+import Customers from "./pages/Customers";
+import KycForm from "./pages/KycForm";
 
 export default function App() {
   return (
