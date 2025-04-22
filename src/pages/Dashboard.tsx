@@ -76,7 +76,7 @@ export default function Dashboard() {
         </div>
 
         <div className="bg-white p-4 rounded-xl shadow lg:col-span-3">
-          <CreditChart />
+          <CreditChart month={selectedMonth} userId={userId} />
         </div>
       </div>
     </Layout>
