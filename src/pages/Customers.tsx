@@ -1,4 +1,4 @@
-import Layout from "../layout/Layout";
+import Layout from "../layout/Layout.tsx";
 
 export default function Customers() {
   return (
