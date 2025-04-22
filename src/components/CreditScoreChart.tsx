@@ -71,7 +71,7 @@ export default function CreditScoreChart({ month, userId }: Props) {
       },
       legend: {
         display: false,
-        position: "bottom",
+        position: "bottom" as const,
         labels: {
           boxWidth: 20,
           padding: 15,
