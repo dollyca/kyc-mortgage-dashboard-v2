@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom"
 import { useState } from "react"
 import {
   ChevronLeft,
@@ -36,7 +37,8 @@ export default function Sidebar() {
         {/* 📋 功能清單 */}
         <nav className="space-y-4">
           {menu.map((item, idx) => (
-            <div
+            <Link
+              to={item.path}
               key={idx}
               title={isCollapsed ? item.label : ""}
               className="flex items-center gap-3 text-gray-700 hover:text-blue-600 cursor-pointer transition"
@@ -45,7 +47,7 @@ export default function Sidebar() {
               <span className={`${isCollapsed ? "hidden" : "inline"} text-sm`}>
                 {item.label}
               </span>
-            </div>
+            </Link>
           ))}
         </nav>
       </div>
@@ -53,11 +55,12 @@ export default function Sidebar() {
       {/* 📱 手機版 icon 橫排 bar */}
       <div className="flex md:hidden justify-around bg-white py-2 shadow">
         {menu.map((item, idx) => (
-          <button key={idx} title={item.label}>
+          <Link key={idx} to={item.path} title={item.label}>
             {item.icon}
-          </button>
+          </Link>
         ))}
       </div>
+
     </>
   )
 }
