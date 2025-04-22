@@ -81,13 +81,10 @@ npm run dev
 ---
 ## Preview
 
-### Desktop View
-![Desktop Preview](./public/dashboard-desktop.png)
+> Real-time preview: [https://kyc-mortgage-dashboard.vercel.app](https://kyc-mortgage-dashboard.vercel.app)
 
-### Mobile View
-![Mobile Preview](./public/dashboard-mobile.png)
+### 🖥️ Desktop View  
+<img src="./public/dashboard-desktop.png" alt="Desktop Dashboard Preview" width="100%"/>
 
-
-## License
-
-[MIT](LICENSE)
+### 📱 Mobile View  
+<img src="./public/dashboard-mobile.png" alt="Mobile Dashboard Preview" width="50%"/>
