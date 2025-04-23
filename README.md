@@ -1,90 +1,88 @@
-# KYC Mortgage Dashboard
+# 🏠 KYC Mortgage Dashboard
 
-A responsive React + TypeScript dashboard designed to visualize key credit and repayment metrics for mortgage clients. The project simulates real-world data handling using mock APIs, with dynamic visual updates based on selected client and month.
+A responsive React + TypeScript dashboard designed to visualize key credit and repayment metrics for mortgage clients.  
+The project simulates real-world data handling using mock APIs, with dynamic visual updates based on selected client and month.
 
 ---
 
 ## Features
 
-- Dynamic credit score distribution chart (Chart.js)
-- Repayment progress bar with mock API data
-- Filter by month and user (client)
-- Full mock API integration (simulated backend logic)
-- Loading states and empty data prompts for smooth UX
-- Responsive layout (grid-based for desktop, tablet, and mobile)
+- ✅ Dynamic credit score distribution chart (Chart.js)
+- ✅ Repayment progress bar with mock API data
+- ✅ Filter by month and user (client)
+- ✅ Full mock API integration (simulated backend logic)
+- ✅ Loading states and empty data prompts for smooth UX
+- ✅ Responsive layout (grid-based for desktop, tablet, and mobile)
 
 ---
 
-## Dashboard Structure
+## 🧱 Modular Architecture Overview
+
+This project follows a clean, modular architecture for scalability and maintainability.  
+All business logic, API calls, and UI rendering are clearly separated by responsibility:
+
+### 📂 Folder Structure Highlights
+
+| Folder                      | Purpose                                       |
+|-----------------------------|-----------------------------------------------|
+| `_refactor/hooks/`          | Handles state logic (e.g., filter, data fetch)|
+| `_refactor/services/`       | Simulated APIs (KPI, repayment, credit score) |
+| `_refactor/components/`     | Display components (e.g., chart, progress bar)|
+| `_refactor/components/ui/`  | Generic UI elements (e.g., Card)              |
+| `Dashboard.tsx`             | Central layout & logic assembly               |
+
+---
+
+### 🔌 Core Hooks
+
+| Hook              | Description                          |
+|-------------------|--------------------------------------|
+| `useFilter`        | Manages selected month & user        |
+| `useKPI`           | Fetches KPI metrics (approved, etc.) |
+| `useRepayment`     | Fetches repayment progress %         |
+| `useCreditChart`   | Fetches chart data & labels          |
+
+---
+
+### 🛠️ Mock Service Functions
+
+| Function                      | Purpose                                |
+|-------------------------------|----------------------------------------|
+| `fetchCreditScoreDistribution`| Returns credit level distribution data |
+| `fetchRepaymentProgress`      | Returns repayment percentage           |
+| `fetchKPIStats`               | Returns simulated KPI values           |
+
+---
+
+## 📊 Dashboard Structure
+
+Below is how modular components are structured within the page:
 
 - `Dashboard.tsx`: Main layout with dropdown filters, KPI cards, progress bar, and chart
-- `CreditScoreChart.tsx`: Chart.js bar chart updated via props
-- `ProgressBar.tsx`: Simple visual component showing repayment percent
-- `api.ts`: Simulated API with mock data based on `month` and `userId`
+- `CreditChart.tsx`: Chart.js bar chart accepting props (data + labels)
+- `ProgressBar.tsx`: Visual component showing repayment percent
+- `api.ts`: Simulated data provider for each feature
+- `Card.tsx`: UI container used for KPI cards & chart blocks
 
 ---
 
-## Core Use Cases
+## 📁 Sample Screenshot
 
-### 1. Month & User Filters
-Select different months and clients to simulate how repayment progress and credit profile vary by case.
-
-### 2. Dynamic Chart Update
-The bar chart updates automatically based on selected props (`month`, `userId`), with:
-- Five credit levels (Poor to Excellent)
-- Dynamic data and labels
-- Smart Y-axis scaling based on dataset
-
-### 3. Loading & Fallback UX
-- Displays loading message while data is fetching
-- Displays empty-state prompt when no data is available
+![dashboard-sample](./public/dashboard-sample.png)
 
 ---
 
-## Technologies Used
+## 🧪 Tech Stack
 
-- React 18 + TypeScript
-- Tailwind CSS (UI layout/styling)
-- Chart.js with react-chartjs-2
-- Vite (build tool)
-
----
-
-## Interview Highlights
-
-- Demonstrates real-world dashboard behavior with asynchronous data fetching and prop-driven chart updates
-- Applies React state lifting and props-based component communication
-- Includes loading state and empty data handling to enhance user experience
-- Simulates realistic backend responses with parameter-based mock API logic
-- Emphasizes clean architecture and reusability for future scalability
+- React + TypeScript + Vite
+- Tailwind CSS for layout
+- Chart.js + react-chartjs-2
+- Modular Hooks & Service-based architecture
 
 ---
 
-## Future Enhancements
+## 🚀 Future Improvements
 
-- Connect to real backend (e.g., FastAPI, Firebase, or Supabase)
-- Implement user authentication and role-based access control
-- Enable data export to CSV or PDF
-- Add historical credit score trend visualization
-
----
-
-## Project Setup
-
-```bash
-git clone https://github.com/yourname/kyc-mortgage-dashboard
-cd kyc-mortgage-dashboard
-npm install
-npm run dev
-```
-
----
-## Preview
-
-> Real-time preview: [https://kyc-mortgage-dashboard.vercel.app](https://kyc-mortgage-dashboard.vercel.app)
-
-### 🖥️ Desktop View  
-<img src="./public/dashboard-desktop.png" alt="Desktop Dashboard Preview" width="100%"/>
-
-### 📱 Mobile View  
-<img src="./public/dashboard-mobile.png" alt="Mobile Dashboard Preview" width="50%"/>
+- [ ] Real API integration
+- [ ] Authentication & user login
+- [ ] KPI trend comparison over time
