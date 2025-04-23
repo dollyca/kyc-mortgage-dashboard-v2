@@ -68,7 +68,11 @@ Below is how modular components are structured within the page:
 
 ## 📁 Sample Screenshot
 
-![dashboard-sample](./public/dashboard-sample.png)
+### 🖥️ Desktop View  
+<img src="/dashboard-desktop.png" alt="Desktop Dashboard Preview" width="100%"/>
+
+### 📱 Mobile View  
+<img src="/dashboard-mobile.png" alt="Mobile Dashboard Preview" width="50%"/>
 
 ---
 
