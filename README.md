@@ -48,8 +48,8 @@ All business logic, API calls, and UI rendering are clearly separated by respons
 
 | Function                      | Purpose                                |
 |-------------------------------|----------------------------------------|
-| `fetchCreditScoreDistribution`| Returns credit level distribution data |
-| `fetchRepaymentProgress`      | Returns repayment percentage           |
+| `fetchCreditData`| Returns credit level distribution data |
+| `fetchRepayment`      | Returns repayment percentage           |
 | `fetchKPIStats`               | Returns simulated KPI values           |
 
 ---

@@ -1,7 +1,8 @@
 type KpiCardProps = {
-    title: string;
-    value: string;
-  };
+  title: string;
+  value: string | number; // ✅ 改成支援數字
+};
+
   
   export default function KpiCard({ title, value }: KpiCardProps) {
     return (

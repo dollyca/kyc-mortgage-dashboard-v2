@@ -1,31 +1,29 @@
 // Dashboard.tsx - 首頁儀表板
 // 使用 Layout 統一包住 Sidebar 和 Header
-// 包含三個 KPI 卡片 + 一張進度條 + 一張信用圖表
+// 使用四個 hooks 拆分資料邏輯與選單狀態
 
-import Layout from "../layout/Layout";
-import KpiCard from "../components/KpiCard";
-import ProgressBar from "../components/ProgressBar";
-import CreditChart from "../components/CreditScoreChart";
-import { useState, useEffect } from "react"
-import { fetchRepaymentProgress } from "@/services/api"
+import Layout from "../layout/Layout"
+import KpiCard from "../components/KpiCard"
+import ProgressBar from "../components/ProgressBar"
+import CreditChart from "../components/CreditScoreChart"
+
+import { useFilter } from "@/hooks/useFilter"
+import { useKPI } from "@/hooks/useKPI"
+import { useRepayment } from "@/hooks/useRepayment"
+import { useCreditChart } from "@/hooks/useCreditChart"
 
 export default function Dashboard() {
-  // ✅ 狀態 State
-  const [repaymentProgress, setRepaymentProgress] = useState(0)
-  const [loading, setLoading] = useState(true)
-  const [selectedMonth, setSelectedMonth] = useState("2025-04")
-  const [userId, setUserId] = useState("U001")
+  // ✅ 抓 filter 狀態（月份 + 用戶）
+  const { selectedMonth, setSelectedMonth, userId, setUserId } = useFilter()
 
-  useEffect(() => {
-    const loadProgress = async () => {
-      setLoading(true)
-      const res = await fetchRepaymentProgress(selectedMonth, userId)
-      setRepaymentProgress(res.progress)
-      setLoading(false)
-    }
+  // ✅ 抓 KPI 數值
+  const { approved, pending, newCases } = useKPI(selectedMonth, userId)
 
-    loadProgress()
-  }, [selectedMonth, userId]) // 👈 有改月份/用戶就 reload
+  // ✅ 抓還款進度
+  const repaymentProgress = useRepayment(selectedMonth, userId)
+
+  // ✅ 抓信用圖表資料
+  const { labels, dataSet } = useCreditChart(selectedMonth, userId)
 
   return (
     <Layout>
@@ -59,16 +57,16 @@ export default function Dashboard() {
 
       {/* 🔢 KPI 卡片區塊：審核、處理中、今日新增 */}
       <div className="grid grid-cols-3 gap-4">
-        <KpiCard title="已審核案件" value="132" />
-        <KpiCard title="處理中" value="47" />
-        <KpiCard title="今日新增" value="8" />
+        <KpiCard title="已審核案件" value={approved} />
+        <KpiCard title="處理中" value={pending} />
+        <KpiCard title="今日新增" value={newCases} />
       </div>
 
       {/* 📊 資料視覺化區：進度條 + 圖表 */}
       <div className="grid grid-cols-1 lg:grid-cols-4 gap-4 mt-4">
         <div className="bg-white p-4 rounded-xl shadow lg:col-span-1">
           <h2 className="text-lg font-semibold mb-2">📊 還款進度</h2>
-          {loading ? (
+          {repaymentProgress === null ? (
             <p className="text-gray-400 italic text-sm">載入中...</p>
           ) : (
             <ProgressBar percentage={repaymentProgress} />
@@ -76,10 +74,9 @@ export default function Dashboard() {
         </div>
 
         <div className="bg-white p-4 rounded-xl shadow lg:col-span-3">
-          <CreditChart month={selectedMonth} userId={userId} />
+          <CreditChart labels={labels} dataSet={dataSet} />
         </div>
       </div>
     </Layout>
   )
-
 }
