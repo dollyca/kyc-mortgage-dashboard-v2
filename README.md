@@ -1,92 +1,63 @@
-# 🏠 KYC Mortgage Dashboard
-
-A responsive React + TypeScript dashboard designed to visualize key credit and repayment metrics for mortgage clients.  
-The project simulates real-world data handling using mock APIs, with dynamic visual updates based on selected client and month.
+# 👉 [🔗 Live Demo](https://kyc-mortgage-dashboard-v2.vercel.app/)
 
 ---
 
-## Features
+# 🏠 KYC Mortgage Dashboard V2
 
-- ✅ Dynamic credit score distribution chart (Chart.js)
-- ✅ Repayment progress bar with mock API data
-- ✅ Filter by month and user (client)
-- ✅ Full mock API integration (simulated backend logic)
-- ✅ Loading states and empty data prompts for smooth UX
-- ✅ Responsive layout (grid-based for desktop, tablet, and mobile)
+This is the **V2 refactored version** of my original KYC Mortgage Dashboard project.
 
----
-
-## 🧱 Modular Architecture Overview
-
-This project follows a clean, modular architecture for scalability and maintainability.  
-All business logic, API calls, and UI rendering are clearly separated by responsibility:
-
-### 📂 Folder Structure Highlights
-
-| Folder                      | Purpose                                       |
-|-----------------------------|-----------------------------------------------|
-| `_refactor/hooks/`          | Handles state logic (e.g., filter, data fetch)|
-| `_refactor/services/`       | Simulated APIs (KPI, repayment, credit score) |
-| `_refactor/components/`     | Display components (e.g., chart, progress bar)|
-| `_refactor/components/ui/`  | Generic UI elements (e.g., Card)              |
-| `Dashboard.tsx`             | Central layout & logic assembly               |
+V2 focuses on:
+- ✅ **Modular hooks** architecture
+- ✅ **Cleaner component structure**
+- ✅ **Better data flow and separation of concerns**
+- ✅ **Improved maintainability and scalability**
+- ✅ Ready for integration with real backend APIs
 
 ---
 
-### 🔌 Core Hooks
+## 💡 Key Features
 
-| Hook              | Description                          |
-|-------------------|--------------------------------------|
-| `useFilter`        | Manages selected month & user        |
-| `useKPI`           | Fetches KPI metrics (approved, etc.) |
-| `useRepayment`     | Fetches repayment progress %         |
-| `useCreditChart`   | Fetches chart data & labels          |
-
----
-
-### 🛠️ Mock Service Functions
-
-| Function                      | Purpose                                |
-|-------------------------------|----------------------------------------|
-| `fetchCreditData`| Returns credit level distribution data |
-| `fetchRepayment`      | Returns repayment percentage           |
-| `fetchKPIStats`               | Returns simulated KPI values           |
+- 🧩 Modular hooks: `useFilter`, `useKPI`, `useRepayment`, `useCreditChart`
+- 📊 KPI cards with dynamic data (Approved, Pending, New Cases)
+- 📈 Repayment progress bar (with loading state)
+- 📉 Credit score distribution chart (Chart.js + Datalabels)
+- 📅 Month & user filter (local state control)
+- 🧼 TypeScript + Tailwind CSS + Vite setup
+- 💡 Simple mock API (`services/api.ts`) simulating async fetch
 
 ---
 
-## 📊 Dashboard Structure
+## 🗂️ Project Structure
 
-Below is how modular components are structured within the page:
+src/ ├── components/ # UI Components (Card, Chart, etc.) ├── hooks/ # Custom hooks for each data logic ├── layout/ # Page layout (Sidebar + Header) ├── pages/ # Main pages (Dashboard, Clients, etc.) ├── services/ # Mock APIs ├── styles/ # Tailwind / global styles
 
-- `Dashboard.tsx`: Main layout with dropdown filters, KPI cards, progress bar, and chart
-- `CreditChart.tsx`: Chart.js bar chart accepting props (data + labels)
-- `ProgressBar.tsx`: Visual component showing repayment percent
-- `api.ts`: Simulated data provider for each feature
-- `Card.tsx`: UI container used for KPI cards & chart blocks
 
 ---
 
-## 📁 Sample Screenshot
+## ⚙️ Tech Stack
 
-### 🖥️ Desktop View  
-<img src="/dashboard-desktop.png" alt="Desktop Dashboard Preview" width="100%"/>
-
-### 📱 Mobile View  
-<img src="/dashboard-mobile.png" alt="Mobile Dashboard Preview" width="50%"/>
-
----
-
-## 🧪 Tech Stack
-
-- React + TypeScript + Vite
-- Tailwind CSS for layout
-- Chart.js + react-chartjs-2
-- Modular Hooks & Service-based architecture
+- React 18 + TypeScript
+- Tailwind CSS
+- Chart.js 4 + chartjs-plugin-datalabels
+- Vite
+- Vitest (optional unit test setup)
+- Deployed on [Vercel](https://vercel.com)
 
 ---
 
-## 🚀 Future Improvements
+## 🛠️ Roadmap (Next)
 
-- [ ] Real API integration
-- [ ] Authentication & user login
-- [ ] KPI trend comparison over time
+- [ ] Integrate with real API backend (FastAPI/Supabase)
+- [ ] Add authentication (login + access control)
+- [ ] Add unit tests (Vitest + React Testing Library)
+- [ ] Improve responsive layout for mobile
+- [ ] Add filter persistence (localStorage or URL params)
+
+---
+
+## ✍️ Author
+
+Made by Dolly  
+[GitHub @dollyca](https://github.com/dollyca)
+
+---
